@@ -1,0 +1,137 @@
+# .NET Core build artifacts
+[Bb]in/
+[Oo]bj/
+[Rr]elease/
+[Dd]ebug/
+*.user
+*.suo
+*.userosscache
+*.usertasks
+
+# Visual Studio cache files
+.vs/
+*.sln.ide/
+*.ide/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# NuGet packages
+packages/
+*.nupkg
+*.snupkg
+*.project.assets.json
+*.nuget.props
+*.nuget.targets
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.usertasks
+*.lock.json
+*.dotnet.user
+
+# Entity Framework
+/Migrations/*.Designer.cs
+/Migrations/*.cs
+!Migrations/AppDbContextModelSnapshot.cs
+
+# Database files
+*.mdf
+*.ldf
+*.db
+*.sqlite
+
+# Logs
+*.log
+logs/
+*.txt
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Configuration files (comented - uncomment if needed)
+# appsettings.Development.json
+# appsettings.Production.json
+
+# IDE files
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+desktop.ini
+
+# Publish profiles
+*.pubxml
+*.pubxml.user
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# ASP.NET Core
+wwwroot/lib/
+node_modules/
+
+# Code coverage
+*.coverage
+*.coveragexml
+*.dotCover
+
+# Backup files
+*.bak
+*.tmp
+*.temp
+
+# Certificate files
+*.pfx
+*.p12
+
+# Docker
+*.dockerignore
+Dockerfile
+
+# Azure
+*.azure/
+*.azuresettings
+
+# Python (if any)
+*.pyc
+__pycache__/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+.DS_Store
+*.ds_store
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Rider
+.idea/
+*.sln.iml
+
+# Migration backup
+*.Migration.cs
+
+# Senhas e configurações locais
+appsettings.json
+appsettings.*.json
+*.secrets.json
+.env
