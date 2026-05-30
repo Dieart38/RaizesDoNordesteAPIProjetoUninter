@@ -131,7 +131,10 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    await DbInitializer.InitializeAsync(dbContext);
+    dbContext.Database.Migrate();
+
+    // Chamada síncrona (sem await)
+    DbInitializer.InitializeAsync(dbContext).GetAwaiter().GetResult();
 }
 
 app.Run();
