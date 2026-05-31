@@ -1,0 +1,354 @@
+{
+    "info": {
+        "_postman_id": "78d35185-599d-49b7-ac51-dbe0330aff65",
+        "name": "Raízes do Nordeste API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "55252364",
+        "_collection_link": "https://go.postman.co/collection/55252364-78d35185-599d-49b7-ac51-dbe0330aff65?source=collection_link"
+    },
+    "item": [
+        {
+            "name": "T01 - Registrar usuario",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"nome\": \"Diego Soares\",\r\n  \"email\": \"die@mail.com\",\r\n  \"cpf\": \"333.333.333-33\",\r\n  \"senha\": \"1234\",\r\n  \"consentimentoLGPD\": true\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:5148/api/Auth/registrar",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5148",
+                    "path": [
+                        "api",
+                        "Auth",
+                        "registrar"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "T02 - Registrar sem LGPD (erro)",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"nome\": \"Cliente Sem LGPD\",\r\n  \"email\": \"semlgpd@teste.com\",\r\n  \"cpf\": \"12345678901\",\r\n  \"senha\": \"Senha@123\",\r\n  \"consentimentoLGPD\": false\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:5148/api/Auth/registrar",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5148",
+                    "path": [
+                        "api",
+                        "Auth",
+                        "registrar"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "T03 - Login valido",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"email\": \"die@mail.com\",\r\n  \"senha\": \"1234\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:5148/api/Auth/login",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5148",
+                    "path": [
+                        "api",
+                        "Auth",
+                        "login"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "T04 - Login invalido (erro)",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"email\": \"postman@teste.com\",\r\n  \"senha\": \"SenhaErrada\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:5148/api/Auth/login",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5148",
+                    "path": [
+                        "api",
+                        "Auth",
+                        "login"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "T05 - Listar unidades",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:5148/api/Unidade",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5148",
+                    "path": [
+                        "api",
+                        "Unidade"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "T06 - Ver cardapio",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:5148/api/Unidade/79ebc72a-2a46-4508-b8b1-d23587301e67/cardapio",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5148",
+                    "path": [
+                        "api",
+                        "Unidade",
+                        "79ebc72a-2a46-4508-b8b1-d23587301e67",
+                        "cardapio"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "T07 - Criar pedido",
+            "protocolProfileBehavior": {
+                "disabledSystemHeaders": {}
+            },
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI4YzYzZWU3LWM0MjktNGIwMi04ZjkxLWE2YWVkNTgyNjg1ZCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImRpZUB0ZXN0ZS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDTElFTlRFIiwiTm9tZSI6IkNsaWVudGUgRGllZ28iLCJleHAiOjE3ODAxNzM5OTQsImlzcyI6IlJhaXplc05vcmRlc3RlQVBJIiwiYXVkIjoiUmFpemVzTm9yZGVzdGVDbGllbnRlcyJ9.h_oFyKZSQG927CkJjBIRAm2Ld8SwAQxcduxKEMAnZgE",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"unidadeId\": \"79ebc72a-2a46-4508-b8b1-d23587301e67\",\r\n  \"canalPedido\": 1,\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"27777b25-5196-4312-a320-61aff8a20cc3\",\r\n      \"quantidade\": 2\r\n    }\r\n  ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:5148/api/Pedido",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5148",
+                    "path": [
+                        "api",
+                        "Pedido"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "T08 - Criar pedido sem token (erro 401)",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"unidadeId\": \"79ebc72a-2a46-4508-b8b1-d23587301e67\",\r\n  \"canalPedido\": 1,\r\n  \"itens\": [\r\n    {\r\n      \"produtoId\": \"27777b25-5196-4312-a320-61aff8a20cc3\",\r\n      \"quantidade\": 2\r\n    }\r\n  ]\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:5148/api/Pedido",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5148",
+                    "path": [
+                        "api",
+                        "Pedido"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "T09 - Pagamento aprovado",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI4YzYzZWU3LWM0MjktNGIwMi04ZjkxLWE2YWVkNTgyNjg1ZCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImRpZUB0ZXN0ZS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDTElFTlRFIiwiTm9tZSI6IkNsaWVudGUgRGllZ28iLCJleHAiOjE3ODAxNzUwODIsImlzcyI6IlJhaXplc05vcmRlc3RlQVBJIiwiYXVkIjoiUmFpemVzTm9yZGVzdGVDbGllbnRlcyJ9.XVkXRCc_hioUbQvZRnS72WkyR3SZWQLgXkou84cmRN0",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"metodoPagamento\": \"MOCK\",\r\n  \"cartaoMock\": {\r\n    \"numero\": \"4111111111111111\",\r\n    \"validade\": \"12/28\",\r\n    \"cvv\": \"123\"\r\n  }\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "http://localhost:5148/api/Pedido/0ca60a9a-eec6-4a37-8e86-a671ab621fa2/pagamento",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5148",
+                    "path": [
+                        "api",
+                        "Pedido",
+                        "0ca60a9a-eec6-4a37-8e86-a671ab621fa2",
+                        "pagamento"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "T10 - Pagamento recusado (erro)",
+            "protocolProfileBehavior": {
+                "disabledSystemHeaders": {
+                    "content-type": true
+                }
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImQ1Y2Y5ZWI4LWM4N2EtNGFmNS1hYzc5LTM2NWIwNWEwMzZmYiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImRpZUBtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkNMSUVOVEUiLCJOb21lIjoiRGllZ28gU29hcmVzIiwiZXhwIjoxNzgwMjcxMDk3LCJpc3MiOiJSYWl6ZXNOb3JkZXN0ZUFQSSIsImF1ZCI6IlJhaXplc05vcmRlc3RlQ2xpZW50ZXMifQ.CQ57B9qFf7QrAKA7f_WXqzIrm2gwRRfuFCgEIgkiqT0",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjI4YzYzZWU3LWM0MjktNGIwMi04ZjkxLWE2YWVkNTgyNjg1ZCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImRpZUB0ZXN0ZS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJDTElFTlRFIiwiTm9tZSI6IkNsaWVudGUgRGllZ28iLCJleHAiOjE3ODAxNzUwODIsImlzcyI6IlJhaXplc05vcmRlc3RlQVBJIiwiYXVkIjoiUmFpemVzTm9yZGVzdGVDbGllbnRlcyJ9.XVkXRCc_hioUbQvZRnS72WkyR3SZWQLgXkou84cmRN0",
+                        "type": "text"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"metodoPagamento\": \"MOCK\",\r\n  \"cartaoMock\": {\r\n    \"numero\": \"5555555555554444\",\r\n    \"validade\": \"12/28\",\r\n    \"cvv\": \"123\"\r\n  }\r\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5148/api/Pedido/4f36efd7-9bbd-4d98-89e0-04bfe5b8f898/pagamento",
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "5148",
+                    "path": [
+                        "api",
+                        "Pedido",
+                        "4f36efd7-9bbd-4d98-89e0-04bfe5b8f898",
+                        "pagamento"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "New Request",
+            "request": {
+                "method": "GET",
+                "header": []
+            },
+            "response": []
+        }
+    ]
+}
