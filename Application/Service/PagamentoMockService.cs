@@ -24,7 +24,7 @@ namespace RaizesNordeste.API.Application.Services
                 return (false, string.Empty, "Pedido não encontrado");
 
             if (pedido.Status != Domain.Enums.StatusPedido.AGUARDANDO_PAGAMENTO)
-                return (false, string.Empty, "Pedido não está aguardando pagamento");
+                return (false, string.Empty, "Pedido aguardando pagamento");
 
             // REGRA DE NEGÓCIO DO MOCK:
             // Cartões com número 4111111111111111 = aprovado
