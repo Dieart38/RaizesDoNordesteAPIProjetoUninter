@@ -1,8 +1,3 @@
-﻿```markdown
-[![.NET Version](https://img.shields.io/badge/.NET-10.0-purple)](https://dotnet.microsoft.com/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)](https://www.postgresql.org/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-
 # 🍽️ API Raízes do Nordeste
 
 API Back-end para rede de lanchonetes nordestinas - Projeto Multidisciplinar UNINTER
