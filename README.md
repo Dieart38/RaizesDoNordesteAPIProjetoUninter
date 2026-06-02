@@ -48,9 +48,10 @@ Instale estes programas no seu computador:
 ### Passo 3: Clonar o repositório
 
 ```bash
-git clone https://github.com/Dieart38/ProjetoRaizesDoNordeste.git
+git clone https://github.com/Dieart38/RaizesDoNordesteAPIProjetoUninter.git
 cd ProjetoRaizesDoNordeste/RaizesNordeste.API/RaizesNordeste.API
-Passo 4: Configurar a senha do banco (User Secrets)
+
+### Passo 4: Configurar a senha do banco (User Secrets)
 No terminal, dentro da pasta do projeto, execute:
 
 bash
@@ -58,15 +59,15 @@ dotnet user-secrets init
 dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=localhost;Database=RaizesNordesteDB;Username=postgres;Password=SUA_SENHA"
 ⚠️ Troque SUA_SENHA pela senha que você definiu no PostgreSQL
 
-Passo 5: Criar as tabelas do banco
+### Passo 5: Criar as tabelas do banco
 bash
 dotnet restore
 dotnet build
 dotnet ef database update
-Passo 6: Executar a API
+### Passo 6: Executar a API
 bash
 dotnet run
-Passo 7: Abrir o Swagger (documentação)
+### Passo 7: Abrir o Swagger (documentação)
 No navegador, acesse:
 
 text
@@ -119,21 +120,21 @@ Criar pedido
 Endpoint: POST /api/Pedido
 
 📡 Endpoints Principais
-Método	Endpoint	O que faz	Autenticação
-POST	/api/Auth/registrar	Cadastrar usuário	❌
-POST	/api/Auth/login	Fazer login (pegar token)	❌
-GET	/api/Unidade	Listar unidades	❌
-GET	/api/Unidade/{id}/cardapio	Ver produtos da unidade	❌
-POST	/api/Pedido	Criar pedido	✅ Token
-GET	/api/Pedido	Ver meus pedidos	✅ Token
-POST	/api/Pedido/{id}/pagamento	Pagar pedido	✅ Token
-GET	/api/Fidelidade/pontos	Ver meus pontos	✅ Token
+Método	          Endpoint	                         O que faz	                      Autenticação
+POST	         /api/Auth/registrar	             Cadastrar usuário	                      ❌
+POST	         /api/Auth/login	                 Fazer login (pegar token)	              ❌
+GET	           /api/Unidade	                     Listar unidades	                        ❌
+GET	           /api/Unidade/{id}/cardapio	       Ver produtos da unidade	                ❌
+POST	         /api/Pedido	                     Criar pedido	                            ✅ Token
+GET	           /api/Pedido	                     Ver meus pedidos	                        ✅ Token
+POST	         /api/Pedido/{id}/pagamento	       Pagar pedido	                            ✅ Token
+GET	           /api/Fidelidade/pontos            Ver meus pontos	                        ✅ Token
 💳 Pagamento Mock
 Use estes números de cartão para testar:
 
-Cartão	Resultado
-4111111111111111	✅ Pagamento aprovado
-5555555555554444	❌ Pagamento recusado
+Cartão	               Resultado
+4111111111111111	     ✅ Pagamento aprovado
+5555555555554444	     ❌ Pagamento recusado
 Body para pagamento:
 
 json
